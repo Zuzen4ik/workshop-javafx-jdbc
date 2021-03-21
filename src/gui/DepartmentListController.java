@@ -89,7 +89,7 @@ public class DepartmentListController implements Initializable, DataChangeListen
 		tableViewDepartment.setItems(obsList);
 		initEditButtons();
 		initRemoveButtons();
-	}
+	} 
 
 	private void createDialogForm(Department obj, String absoluteName, Stage parentStage) {
 		try {
@@ -166,6 +166,7 @@ public class DepartmentListController implements Initializable, DataChangeListen
 		 	
 		 	try {
 		 		service.remove(obj);
+		 		updateTableView();
 		 	} catch (DbIntegrityException e) {
 		 		Alerts.showAlert("Error removing object", null, e.getMessage(), AlertType.ERROR);
 		 	}
